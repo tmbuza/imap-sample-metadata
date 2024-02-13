@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>2 Downloading NCBI-SRA metadata | IMAP: Integrated Microbiome Analysis Pipelines</title>
+<meta name="author" content="Teresia Mrema-Buza">
+<meta name="description" content="Different methods exist for downloading sample metadata deposited in the Sequence Read Archive (SRA) or the European Nucleotide Archive (ENA). Each process yields slightly different information,...">
+<meta name="generator" content="bookdown 0.37 with bs4_book()">
+<meta property="og:title" content="2 Downloading NCBI-SRA metadata | IMAP: Integrated Microbiome Analysis Pipelines">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://tmbuza.github.io/imap-project-overview/downloading-ncbi-sra-metadata.html">
+<meta property="og:image" content="https://tmbuza.github.io/imap-project-overview/images/planning.png">
+<meta property="og:description" content="Different methods exist for downloading sample metadata deposited in the Sequence Read Archive (SRA) or the European Nucleotide Archive (ENA). Each process yields slightly different information,...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2 Downloading NCBI-SRA metadata | IMAP: Integrated Microbiome Analysis Pipelines">
+<meta name="twitter:description" content="Different methods exist for downloading sample metadata deposited in the Sequence Read Archive (SRA) or the European Nucleotide Archive (ENA). Each process yields slightly different information,...">
+<meta name="twitter:image" content="https://tmbuza.github.io/imap-project-overview/images/planning.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><link href="libs/Sen-0.4.8/font.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM%20Mono&amp;display=swap" rel="stylesheet">
+<link href="libs/Bitter-0.4.8/font.css" rel="stylesheet">
+<script src="libs/bs3compat-0.6.1/transition.js"></script><script src="libs/bs3compat-0.6.1/tabs.js"></script><script src="libs/bs3compat-0.6.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="End-to-End Practical User Guides Using Integrated Approaches"><big>IMAP:</big> Integrated Microbiome Analysis Pipelines</a>:
+        <small class="text-muted">End-to-End Practical User Guides Using Integrated Approaches</small>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Getting Started with Metadata Exploration</a></li>
+<li class="book-part">SAMPLE METADATA</li>
+<li><a class="" href="understanding-sample-metadata.html"><span class="header-section-number">1</span> Understanding Sample Metadata</a></li>
+<li><a class="active" href="downloading-ncbi-sra-metadata.html"><span class="header-section-number">2</span> Downloading NCBI-SRA metadata</a></li>
+<li><a class="" href="exploring-sample-metadata.html"><span class="header-section-number">3</span> Exploring sample metadata</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/tmbuza/imap-project-overview.git">View book source <i class="fas fa-air-freshener"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="downloading-ncbi-sra-metadata" class="section level1" number="2">
+<h1>
+<span class="header-section-number">2</span> Downloading NCBI-SRA metadata<a class="anchor" aria-label="anchor" href="#downloading-ncbi-sra-metadata"><i class="fas fa-link"></i></a>
+</h1>
+<p>Different methods exist for downloading sample metadata deposited in the Sequence Read Archive (SRA) or the European Nucleotide Archive (ENA). Each process yields slightly different information, so it is an ideal habit to explore which method gives you what suits you best.
+For demo: We will explore more on sample metadata retrieved from five randomly selected microbiome BioProjects, including:</p>
+<ol style="list-style-type: decimal">
+<li>
+<a href="https://www.ncbi.nlm.nih.gov/sra/?term=PRJNA477349">PRJNA477349</a>: 16S rRNA from bushmeat samples collected from Tanzania Metagenome (Multispecies).</li>
+<li>
+<a href="https://www.ncbi.nlm.nih.gov/sra/?term=PRJNA802976">PRJNA802976</a>: Changes to Gut Microbiota following Systemic Antibiotic Administration in Infants (Multispecies).</li>
+<li>
+<a href="https://www.ncbi.nlm.nih.gov/sra/?term=PRJNA322554">PRJNA322554</a>: The Early Infant Gut Microbiome Varies In Association with a Maternal High-fat Diet (Multispecies).</li>
+<li>
+<a href="https://www.ncbi.nlm.nih.gov/sra/?term=PRJNA937707">PRJNA937707</a>: Microbiome associated with spotting disease in the purple sea urchin (Multispecies).</li>
+<li>
+<a href="https://www.ncbi.nlm.nih.gov/sra/?term=PRJNA589182">PRJNA589182</a>: 16S rDNA gene sequencing of the phyllosphere endophytic bacterial communities colonizing wild Populus trichocarpa Raw sequence reads(Multispecies).</li>
+</ol>
+<div id="manually-via-sra-run-selector" class="section level2" number="2.1">
+<h2>
+<span class="header-section-number">2.1</span> Manually via SRA <code>Run Selector</code><a class="anchor" aria-label="anchor" href="#manually-via-sra-run-selector"><i class="fas fa-link"></i></a>
+</h2>
+<p>We can manually retrieve metadata from the SRA database via the <code>SRA Run Selector</code>.</p>
+<ul>
+<li>Note that the SRA filename for metadata is automatically named SraRunTable.txt.</li>
+<li>Users can change the default TXT extension to like CSV if preferred.</li>
+<li>In our demo, we will use CSV to save the metadata file in the <code>data/</code> folder.</li>
+</ul>
+<div class="float" id="runselector">
+<img src="images/sra_run_selector.png" alt="Example screen shot of SRA Run Selector for metadata associated with the NCBI-SRA bioproject number PRJNA477349"><div class="figcaption">Example screen shot of SRA Run Selector for metadata associated with the NCBI-SRA bioproject number PRJNA477349</div>
+</div>
+</div>
+<div id="computationally-via-entrez-direct" class="section level2" number="2.2">
+<h2>
+<span class="header-section-number">2.2</span> Computationally via <code>Entrez Direct</code><a class="anchor" aria-label="anchor" href="#computationally-via-entrez-direct"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb1-1"><a href="downloading-ncbi-sra-metadata.html#cb1-1" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb1-2"><a href="downloading-ncbi-sra-metadata.html#cb1-2" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="downloading-ncbi-sra-metadata.html#cb1-3" tabindex="-1"></a><span class="ex">esearch</span> <span class="at">-db</span> sra <span class="at">-query</span> <span class="st">'PRJNA477349[bioproject]'</span> <span class="kw">|</span> <span class="ex">efetch</span> <span class="at">-format</span> runinfo <span class="op">&gt;</span>data/runinfo_PRJNA477349_metadata.csv<span class="kw">;</span></span>
+<span id="cb1-4"><a href="downloading-ncbi-sra-metadata.html#cb1-4" tabindex="-1"></a><span class="ex">esearch</span> <span class="at">-db</span> sra <span class="at">-query</span> <span class="st">'PRJNA802976[bioproject]'</span> <span class="kw">|</span> <span class="ex">efetch</span> <span class="at">-format</span> runinfo <span class="op">&gt;</span>data/runinfo_PRJNA802976_metadata.csv<span class="kw">;</span></span>
+<span id="cb1-5"><a href="downloading-ncbi-sra-metadata.html#cb1-5" tabindex="-1"></a><span class="ex">esearch</span> <span class="at">-db</span> sra <span class="at">-query</span> <span class="st">'PRJNA322554[bioproject]'</span> <span class="kw">|</span> <span class="ex">efetch</span> <span class="at">-format</span> runinfo <span class="op">&gt;</span>data/runinfo_PRJNA322554_metadata.csv<span class="kw">;</span></span>
+<span id="cb1-6"><a href="downloading-ncbi-sra-metadata.html#cb1-6" tabindex="-1"></a><span class="ex">esearch</span> <span class="at">-db</span> sra <span class="at">-query</span> <span class="st">'PRJNA937707[bioproject]'</span> <span class="kw">|</span> <span class="ex">efetch</span> <span class="at">-format</span> runinfo <span class="op">&gt;</span>data/runinfo_PRJNA937707_metadata.csv<span class="kw">;</span></span>
+<span id="cb1-7"><a href="downloading-ncbi-sra-metadata.html#cb1-7" tabindex="-1"></a><span class="ex">esearch</span> <span class="at">-db</span> sra <span class="at">-query</span> <span class="st">'PRJNA589182[bioproject]'</span> <span class="kw">|</span> <span class="ex">efetch</span> <span class="at">-format</span> runinfo <span class="op">&gt;</span>data/runinfo_PRJNA589182_metadata.csv<span class="kw">;</span></span></code></pre></div>
+</div>
+<div id="computationally-using-pysradb" class="section level2" number="2.3">
+<h2>
+<span class="header-section-number">2.3</span> Computationally using <code>pysradb</code><a class="anchor" aria-label="anchor" href="#computationally-using-pysradb"><i class="fas fa-link"></i></a>
+</h2>
+<div id="create-pysradb-environment" class="section level3" number="2.3.1">
+<h3>
+<span class="header-section-number">2.3.1</span> Create pysradb environment<a class="anchor" aria-label="anchor" href="#create-pysradb-environment"><i class="fas fa-link"></i></a>
+</h3>
+<p>The <code>pysradb</code> tool can obtain metadata from SRA and ENA. Here we will create an independent environment and install pysradb. We can delete this env when no longer needed.
+To learn more <a href="https://saket-choudhary.me/pysradb/quickstart.html">click here</a>.</p>
+<ul>
+<li>First, we create a <code>pysradb environment</code> and install the pysradb tool.</li>
+<li>Then we use <code>pysradb</code> to download the SRA metadata on CLI.</li>
+</ul>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb2-1"><a href="downloading-ncbi-sra-metadata.html#cb2-1" tabindex="-1"></a><span class="ex">conda</span> activate base</span>
+<span id="cb2-2"><a href="downloading-ncbi-sra-metadata.html#cb2-2" tabindex="-1"></a><span class="ex">conda</span> create <span class="at">-c</span> bioconda <span class="at">-n</span> pysradb PYTHON=3 pysradb</span></code></pre></div>
+</div>
+<div id="using-a-bash-script" class="section level3" number="2.3.2">
+<h3>
+<span class="header-section-number">2.3.2</span> Using a <code>bash</code> script<a class="anchor" aria-label="anchor" href="#using-a-bash-script"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb3-1"><a href="downloading-ncbi-sra-metadata.html#cb3-1" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb3-2"><a href="downloading-ncbi-sra-metadata.html#cb3-2" tabindex="-1"></a><span class="co"># Shell script: workflow/scripts/pysradb_sra_metadata.sh</span></span>
+<span id="cb3-3"><a href="downloading-ncbi-sra-metadata.html#cb3-3" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="downloading-ncbi-sra-metadata.html#cb3-4" tabindex="-1"></a><span class="ex">pysradb</span> metadata PRJNA477349 <span class="at">--detailed</span> <span class="op">&gt;</span>data/PRJNA477349_pysradb.csv</span>
+<span id="cb3-5"><a href="downloading-ncbi-sra-metadata.html#cb3-5" tabindex="-1"></a><span class="ex">pysradb</span> metadata PRJNA802976 <span class="at">--detailed</span> <span class="op">&gt;</span>data/PRJNA802976_pysradb.csv</span>
+<span id="cb3-6"><a href="downloading-ncbi-sra-metadata.html#cb3-6" tabindex="-1"></a><span class="ex">pysradb</span> metadata PRJNA322554 <span class="at">--detailed</span> <span class="op">&gt;</span>data/PRJNA322554_pysradb.csv</span>
+<span id="cb3-7"><a href="downloading-ncbi-sra-metadata.html#cb3-7" tabindex="-1"></a><span class="ex">pysradb</span> metadata PRJNA937707 <span class="at">--detailed</span> <span class="op">&gt;</span>data/PRJNA937707_pysradb.csv</span>
+<span id="cb3-8"><a href="downloading-ncbi-sra-metadata.html#cb3-8" tabindex="-1"></a><span class="ex">pysradb</span> metadata PRJNA589182 <span class="at">--detailed</span> <span class="op">&gt;</span>data/PRJNA589182_pysradb.csv</span></code></pre></div>
+</div>
+<div id="using-a-python-script" class="section level3" number="2.3.3">
+<h3>
+<span class="header-section-number">2.3.3</span> Using a <code>python</code> script<a class="anchor" aria-label="anchor" href="#using-a-python-script"><i class="fas fa-link"></i></a>
+</h3>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="downloading-ncbi-sra-metadata.html#cb4-1" tabindex="-1"></a><span class="co"># Python script: workflow/scripts/pysradb_sra_metadata.py</span></span>
+<span id="cb4-2"><a href="downloading-ncbi-sra-metadata.html#cb4-2" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="downloading-ncbi-sra-metadata.html#cb4-3" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb4-4"><a href="downloading-ncbi-sra-metadata.html#cb4-4" tabindex="-1"></a><span class="im">import</span> sys</span>
+<span id="cb4-5"><a href="downloading-ncbi-sra-metadata.html#cb4-5" tabindex="-1"></a><span class="im">import</span> csv</span>
+<span id="cb4-6"><a href="downloading-ncbi-sra-metadata.html#cb4-6" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb4-7"><a href="downloading-ncbi-sra-metadata.html#cb4-7" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="downloading-ncbi-sra-metadata.html#cb4-8" tabindex="-1"></a><span class="im">from</span> pysradb.sraweb <span class="im">import</span> SRAweb</span>
+<span id="cb4-9"><a href="downloading-ncbi-sra-metadata.html#cb4-9" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="downloading-ncbi-sra-metadata.html#cb4-10" tabindex="-1"></a>db <span class="op">=</span> SRAweb()</span>
+<span id="cb4-11"><a href="downloading-ncbi-sra-metadata.html#cb4-11" tabindex="-1"></a>df <span class="op">=</span> db.sra_metadata(<span class="st">'PRJNA477349'</span>, detailed<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-12"><a href="downloading-ncbi-sra-metadata.html#cb4-12" tabindex="-1"></a>df.to_csv(<span class="st">'data/PRJNA477349_pysradb_metadata.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb4-13"><a href="downloading-ncbi-sra-metadata.html#cb4-13" tabindex="-1"></a></span>
+<span id="cb4-14"><a href="downloading-ncbi-sra-metadata.html#cb4-14" tabindex="-1"></a>db <span class="op">=</span> SRAweb()</span>
+<span id="cb4-15"><a href="downloading-ncbi-sra-metadata.html#cb4-15" tabindex="-1"></a>df <span class="op">=</span> db.sra_metadata(<span class="st">'PRJNA802976'</span>, detailed<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-16"><a href="downloading-ncbi-sra-metadata.html#cb4-16" tabindex="-1"></a>df.to_csv(<span class="st">'data/PRJNA802976_pysradb_metadata.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb4-17"><a href="downloading-ncbi-sra-metadata.html#cb4-17" tabindex="-1"></a></span>
+<span id="cb4-18"><a href="downloading-ncbi-sra-metadata.html#cb4-18" tabindex="-1"></a>db <span class="op">=</span> SRAweb()</span>
+<span id="cb4-19"><a href="downloading-ncbi-sra-metadata.html#cb4-19" tabindex="-1"></a>df <span class="op">=</span> db.sra_metadata(<span class="st">'PRJNA322554'</span>, detailed<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-20"><a href="downloading-ncbi-sra-metadata.html#cb4-20" tabindex="-1"></a>df.to_csv(<span class="st">'data/PRJNA322554_pysradb_metadata.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb4-21"><a href="downloading-ncbi-sra-metadata.html#cb4-21" tabindex="-1"></a></span>
+<span id="cb4-22"><a href="downloading-ncbi-sra-metadata.html#cb4-22" tabindex="-1"></a>db <span class="op">=</span> SRAweb()</span>
+<span id="cb4-23"><a href="downloading-ncbi-sra-metadata.html#cb4-23" tabindex="-1"></a>df <span class="op">=</span> db.sra_metadata(<span class="st">'PRJNA937707'</span>, detailed<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-24"><a href="downloading-ncbi-sra-metadata.html#cb4-24" tabindex="-1"></a>df.to_csv(<span class="st">'data/PRJNA937707_pysradb_metadata.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb4-25"><a href="downloading-ncbi-sra-metadata.html#cb4-25" tabindex="-1"></a></span>
+<span id="cb4-26"><a href="downloading-ncbi-sra-metadata.html#cb4-26" tabindex="-1"></a>db <span class="op">=</span> SRAweb()</span>
+<span id="cb4-27"><a href="downloading-ncbi-sra-metadata.html#cb4-27" tabindex="-1"></a>df <span class="op">=</span> db.sra_metadata(<span class="st">'PRJNA589182'</span>, detailed<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-28"><a href="downloading-ncbi-sra-metadata.html#cb4-28" tabindex="-1"></a>df.to_csv(<span class="st">'data/PRJNA589182_pysradb_metadata.csv'</span>, index<span class="op">=</span><span class="va">False</span>)</span></code></pre></div>
+<blockquote>
+<p>I sometimes experience ConnectionError when using python method. Try a different method if that happens.</p>
+</blockquote>
+</div>
+</div>
+<div id="example-querying-sra-or-ena-with-a-keyword" class="section level2" number="2.4">
+<h2>
+<span class="header-section-number">2.4</span> Example querying SRA or ENA with a keyword<a class="anchor" aria-label="anchor" href="#example-querying-sra-or-ena-with-a-keyword"><i class="fas fa-link"></i></a>
+</h2>
+<blockquote>
+<p>Using keywords to search any extensive database helps filter user-specified information, such as certain disease-related studies.</p>
+</blockquote>
+<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb5-1"><a href="downloading-ncbi-sra-metadata.html#cb5-1" tabindex="-1"></a><span class="co">#!/bin/bash</span></span>
+<span id="cb5-2"><a href="downloading-ncbi-sra-metadata.html#cb5-2" tabindex="-1"></a><span class="ex">mamba</span> install <span class="at">-c</span> bioconda pysradb</span>
+<span id="cb5-3"><a href="downloading-ncbi-sra-metadata.html#cb5-3" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="downloading-ncbi-sra-metadata.html#cb5-4" tabindex="-1"></a><span class="ex">pysradb</span> search <span class="at">--db</span> sra <span class="at">-q</span> Amplicon <span class="at">--max</span> 100 <span class="op">&gt;</span>sra_amplicon_studies.csv</span>
+<span id="cb5-5"><a href="downloading-ncbi-sra-metadata.html#cb5-5" tabindex="-1"></a></span>
+<span id="cb5-6"><a href="downloading-ncbi-sra-metadata.html#cb5-6" tabindex="-1"></a><span class="ex">pysradb</span> search <span class="at">--db</span> ena <span class="at">-q</span> Amplicon <span class="at">--max</span> 100 <span class="op">&gt;</span>ena_amplicon_studies.csv</span></code></pre></div>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="understanding-sample-metadata.html"><span class="header-section-number">1</span> Understanding Sample Metadata</a></div>
+<div class="next"><a href="exploring-sample-metadata.html"><span class="header-section-number">3</span> Exploring sample metadata</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#downloading-ncbi-sra-metadata"><span class="header-section-number">2</span> Downloading NCBI-SRA metadata</a></li>
+<li><a class="nav-link" href="#manually-via-sra-run-selector"><span class="header-section-number">2.1</span> Manually via SRA Run Selector</a></li>
+<li><a class="nav-link" href="#computationally-via-entrez-direct"><span class="header-section-number">2.2</span> Computationally via Entrez Direct</a></li>
+<li>
+<a class="nav-link" href="#computationally-using-pysradb"><span class="header-section-number">2.3</span> Computationally using pysradb</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#create-pysradb-environment"><span class="header-section-number">2.3.1</span> Create pysradb environment</a></li>
+<li><a class="nav-link" href="#using-a-bash-script"><span class="header-section-number">2.3.2</span> Using a bash script</a></li>
+<li><a class="nav-link" href="#using-a-python-script"><span class="header-section-number">2.3.3</span> Using a python script</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#example-querying-sra-or-ena-with-a-keyword"><span class="header-section-number">2.4</span> Example querying SRA or ENA with a keyword</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/tmbuza/imap-project-overview.git/blob/gh-pages/01_download_sra_metadata.Rmd">View source <i class="fas fa-air-freshener"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/tmbuza/imap-project-overview.git/edit/gh-pages/01_download_sra_metadata.Rmd">Edit this page <i class="fas fa-air-freshener"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container">
+    <div class="row">
+      <div class="col-12 col-md-6 mt-3">
+        <p><strong><u><a class="text-light" href="https://microbiome.complexdatainsights.com"><big>IMAP:</big> Integrated Microbiome Analysis Pipelines</a></u></strong>: End-to-End Practical User Guides Using Integrated Approaches</p>
+<br><p>Authored by Teresia Mrema-Buza, Last updated: <b>2024-02-14</b>.</p>
+<br>
+</div>
+      <div class="col-12 col-md-6 mt-3">
+        <p>Note: This practical guide was created using the <a class="text-light" href="https://bookdown.org/yihui/bookdown/">bookdown</a> R package, styled with the modern bs4_book format.</p>
+      </div>
+
+    </div>
+  </div>
+</footer>
+</body>
+</html>

@@ -1,0 +1,104 @@
+.
+├── 00_preface_n_intro.Rmd
+├── 01_download_sra_metadata.Rmd
+├── 02_explore_sra_metadata.Rmd
+├── LICENSE
+├── README.md
+├── Rplots.pdf
+├── bashinR.Rmd
+├── bashinR.html
+├── config
+│   ├── config.yml
+│   ├── pbs
+│   ├── pe_samples.tsv
+│   ├── pe_units.tsv
+│   ├── samples.tsv
+│   ├── se_samples.tsv
+│   ├── se_units.tsv
+│   ├── slurm
+│   └── units.tsv
+├── dag.pdf
+├── dags
+│   ├── rulegraph.png
+│   └── rulegraph.svg
+├── data
+│   ├── PRJEB13870_SraRunTable.csv
+│   ├── PRJEB13870_tidy_metadata.csv
+│   ├── PRJNA208226_SraRunTable.csv
+│   ├── PRJNA208226_tidy_metadata.csv
+│   ├── PRJNA322554_SraRunTable.csv
+│   ├── PRJNA322554_tidy_metadata.csv
+│   ├── PRJNA477349_SraRunTable.csv
+│   ├── PRJNA477349_tidy_metadata.csv
+│   ├── PRJNA589182_SraRunTable.csv
+│   ├── PRJNA589182_tidy_metadata.csv
+│   ├── PRJNA802976_SraRunTable.csv
+│   ├── PRJNA802976_tidy_metadata.csv
+│   ├── PRJNA937707_SraRunTable.csv
+│   ├── PRJNA937707_tidy_metadata.csv
+│   ├── bioproj_accessions.txt
+│   ├── metadata.csv
+│   └── mouse_gut.tsv
+├── ena_amplicon_studies.csv
+├── figures
+│   ├── PRJNA208226_read_size.png
+│   ├── PRJNA208226_read_size.svg
+│   ├── PRJNA477349_read_size.png
+│   └── PRJNA477349_read_size.svg
+├── get_run_accessions.Rmd
+├── images
+│   ├── PRJNA208226_read_size.png
+│   ├── analysis_creation_time.svg
+│   ├── analysis_statistics.svg
+│   ├── bkgd.png
+│   ├── geeks.png
+│   ├── gpsfiles
+│   ├── metadata.png
+│   ├── mymap.html
+│   ├── mymap.png
+│   ├── rule_runtime_date.png
+│   ├── sample_gps.html
+│   ├── sample_gps.png
+│   ├── sample_gps_files
+│   ├── sample_gps_py.html
+│   ├── smk_static_report.png
+│   └── sra_run_selector.png
+├── imap-sample-metadata.Rproj
+├── index.Rmd
+├── index.html
+├── library
+│   ├── apa.csl
+│   ├── imap.bib
+│   └── references.bib
+├── mymap.html
+├── resources
+│   ├── metadata
+│   └── pe_metadata.tsv
+├── results
+│   ├── project_tree.txt
+│   ├── read_size_asc.csv
+│   └── read_size_desc.csv
+├── sample_gps.html
+├── sample_gps_files
+│   ├── Proj4Leaflet-1.0.1
+│   ├── htmlwidgets-1.5.4
+│   ├── htmlwidgets-1.6.1
+│   ├── jquery-1.12.4
+│   ├── leaflet-1.3.1
+│   ├── leaflet-binding-2.1.1
+│   ├── leaflet-providers-1.9.0
+│   ├── leaflet-providers-plugin-2.1.1
+│   ├── leafletfix-1.0.0
+│   ├── proj4-2.6.2
+│   └── rstudio_leaflet-1.3.1
+├── sra_amplicon_studies.csv
+├── styles.css
+└── workflow
+    ├── Snakefile
+    ├── envs
+    ├── report
+    ├── rules
+    ├── schemas
+    └── scripts
+
+32 directories, 70 files

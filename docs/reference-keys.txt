@@ -1,0 +1,17 @@
+understanding-sample-metadata
+what-is-metadata
+metadata-structure
+embedded-metadata
+downloading-ncbi-sra-metadata
+manually-via-sra-run-selector
+computationally-via-entrez-direct
+computationally-using-pysradb
+create-pysradb-environment
+using-a-bash-script
+using-a-python-script
+example-querying-sra-or-ena-with-a-keyword
+exploring-sample-metadata
+read-size
+compare-read-size-by-bioproject
+read-size-by-variables-within-a-project
+explore-project-sampling-points

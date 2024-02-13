@@ -1,0 +1,17 @@
+# config.yaml
+
+# Path to sample sheet (TSV format, columns: sample_name, condition, ...)
+pe_samples: config/pe_samples.tsv
+# se_samples: config/se_samples.tsv
+
+# Path to sequencing unit sheet (TSV format, columns: sample_name, unit, fq1, fq2)
+pe_units: config/pe_units.tsv
+# se_units: config/se_units.tsv
+
+bioproject:
+  - PRJNA477349
+  - PRJNA802976
+  - PRJNA322554
+  - PRJNA937707
+  - PRJNA589182
+  - PRJEB13870

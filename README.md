@@ -1,2 +1,1 @@
-# imap-sample-metadata
- Exploring microbiome sample metadata
+# Exploring and Profiling Metagenomic Sample Metadata

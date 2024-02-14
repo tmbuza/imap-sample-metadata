@@ -7,7 +7,7 @@ bookdown::bs4_book:
   footnotes_inline: false
   split_bib: true
   repo:
-    base: https://github.com/tmbuza/imap-project-overview.git
+    base: https://github.com/tmbuza/imap-sample-metadata.git
     branch: gh-pages
     icon: "fas fa-air-freshener"
   theme:

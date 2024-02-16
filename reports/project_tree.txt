@@ -9,7 +9,6 @@ Project Tree
 ├── 9999-footer.Rmd
 ├── LICENSE
 ├── README.md
-├── Rplots.pdf
 ├── _bookdown.yml
 ├── _common.R
 ├── _output.yml
@@ -50,10 +49,12 @@ Project Tree
 │   ├── 404.html
 │   ├── downloading-ncbi-sra-metadata.html
 │   ├── exploring-sample-metadata.html
+│   ├── figures
 │   ├── images
 │   ├── index.html
 │   ├── index.md
 │   ├── libs
+│   ├── map
 │   ├── reference-keys.txt
 │   ├── search.json
 │   ├── style.css
@@ -78,6 +79,7 @@ Project Tree
 │   ├── planning.png
 │   ├── read_size.svg
 │   ├── rule_runtime_date.png
+│   ├── sampling_points.png
 │   ├── smk_static_report.png
 │   └── sra_run_selector.png
 ├── imap-sample-metadata.Rproj
@@ -87,13 +89,6 @@ Project Tree
 │   ├── imap.bib
 │   ├── packages.bib
 │   └── references.bib
-├── libs
-│   ├── Bitter-0.4.8
-│   ├── Sen-0.4.8
-│   ├── bootstrap-4.6.0
-│   ├── bs3compat-0.6.1
-│   ├── bs4_book-1.0.0
-│   └── jquery-3.6.0
 ├── map
 │   └── sample_gps.html
 ├── output
@@ -112,6 +107,9 @@ Project Tree
 ├── results
 │   ├── read_size_asc.csv
 │   └── read_size_desc.csv
+├── sample-metadata.html
+├── sample-metadata.md
+├── sample-metadata.rds
 ├── style.css
 ├── welcome-to-imap.html
 └── workflow
@@ -122,4 +120,4 @@ Project Tree
     ├── schemas
     └── scripts
 
-33 directories, 89 files
+28 directories, 92 files

@@ -1,5 +1,6 @@
-# Exploring sample metadata
+# Exploring Sample Metadata
 
+## Load required libraries
 ```{r message=FALSE, warning=FALSE}
 library(tidyverse)
 knitr::opts_chunk$set(comment = NA)
@@ -37,17 +38,14 @@ head(5)
 
 <br>
 
-## Interactive Sample GPS Map
+# Interactive Sample Location Map
 
-Dropping pins on the map is possible if you have coordinate data, such as latitudes and longitudes of collection points. The pins represent different projects, and by hovering over a pin, you will be able to see information about the corresponding project.
+In this section, an interactive map is provided to explore sample locations based on their coordinates. Dropping pins on the map is possible if you have coordinate data, such as latitudes and longitudes of collection points. The pins represent different projects, and by hovering over a pin, you will be able to see information about the corresponding project.</p><p>It is a good practice during sample collection to take the coordinates for plotting location points, which will add clarity to the report. For the interactive experience, view this report in a browser that supports JavaScript. You can also zoom-in or out for better exploration.
 
-Below is the interactive map:
+```{r echo=FALSE, results='asis'}
+library(htmltools)
 
-![Interactive GPS Map](map/sample_gps.html)
+HTML('<iframe src="map/sample_gps.html" width="800" height="600"></iframe>')
 
-*Note: For the interactive experience, view this report in a browser that supports JavaScript.*
+```
 
-![](images/sampling_points.png)
-
-
-<br>

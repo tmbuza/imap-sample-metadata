@@ -2,7 +2,7 @@
 title: "<big>IMAP:</big> Integrated Microbiome Analysis Pipelines"
 subtitle: "End-to-End Practical User Guides Using Integrated Approaches"
 date:
-- <b>2024-02-16</b>
+- <b>2024-02-17</b>
 author: Teresia Mrema-Buza
 site: bookdown::bookdown_site
 documentclass: book
@@ -42,7 +42,7 @@ description: |
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
 
-# <big>Getting Started with Metadata Exploration</big> {-#welcome-to-imap}
+# <big>Getting Started with Metadata Exploration</big> {-#metadata-exploration}
 
 <br>
 <br>

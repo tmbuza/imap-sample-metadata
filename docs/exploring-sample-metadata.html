@@ -4,18 +4,18 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>3 Exploring sample metadata | IMAP: Integrated Microbiome Analysis Pipelines</title>
+<title>3 Exploring Sample Metadata | IMAP: Integrated Microbiome Analysis Pipelines</title>
 <meta name="author" content="Teresia Mrema-Buza">
-<meta name="description" content="library(tidyverse) knitr::opts_chunk$set(comment = NA)  3.1 Read size The size of the reads can tell us how big is the dataset and can help to estimate the computational needs. Top five smallest...">
+<meta name="description" content="3.1 Load required libraries library(tidyverse) knitr::opts_chunk$set(comment = NA)  3.2 Read size The size of the reads can tell us how big is the dataset and can help to estimate the...">
 <meta name="generator" content="bookdown 0.37 with bs4_book()">
-<meta property="og:title" content="3 Exploring sample metadata | IMAP: Integrated Microbiome Analysis Pipelines">
+<meta property="og:title" content="3 Exploring Sample Metadata | IMAP: Integrated Microbiome Analysis Pipelines">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://tmbuza.github.io/imap-project-overview/exploring-sample-metadata.html">
 <meta property="og:image" content="https://tmbuza.github.io/imap-project-overview/images/planning.png">
-<meta property="og:description" content="library(tidyverse) knitr::opts_chunk$set(comment = NA)  3.1 Read size The size of the reads can tell us how big is the dataset and can help to estimate the computational needs. Top five smallest...">
+<meta property="og:description" content="3.1 Load required libraries library(tidyverse) knitr::opts_chunk$set(comment = NA)  3.2 Read size The size of the reads can tell us how big is the dataset and can help to estimate the...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="3 Exploring sample metadata | IMAP: Integrated Microbiome Analysis Pipelines">
-<meta name="twitter:description" content="library(tidyverse) knitr::opts_chunk$set(comment = NA)  3.1 Read size The size of the reads can tell us how big is the dataset and can help to estimate the computational needs. Top five smallest...">
+<meta name="twitter:title" content="3 Exploring Sample Metadata | IMAP: Integrated Microbiome Analysis Pipelines">
+<meta name="twitter:description" content="3.1 Load required libraries library(tidyverse) knitr::opts_chunk$set(comment = NA)  3.2 Read size The size of the reads can tell us how big is the dataset and can help to estimate the...">
 <meta name="twitter:image" content="https://tmbuza.github.io/imap-project-overview/images/planning.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -26,6 +26,28 @@
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<style type="text/css">
+    /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+    div.csl-bib-body { }
+    div.csl-entry {
+      clear: both;
+        }
+    .hanging div.csl-entry {
+      margin-left:2em;
+      text-indent:-2em;
+    }
+    div.csl-left-margin {
+      min-width:2em;
+      float:left;
+    }
+    div.csl-right-inline {
+      margin-left:2em;
+      padding-left:1em;
+    }
+    div.csl-indent {
+      margin-left: 2em;
+    }
   </style>
 <link rel="stylesheet" href="style.css">
 </head>
@@ -54,7 +76,13 @@
 <li class="book-part">SAMPLE METADATA</li>
 <li><a class="" href="understanding-sample-metadata.html"><span class="header-section-number">1</span> Understanding Sample Metadata</a></li>
 <li><a class="" href="downloading-ncbi-sra-metadata.html"><span class="header-section-number">2</span> Downloading NCBI-SRA metadata</a></li>
-<li><a class="active" href="exploring-sample-metadata.html"><span class="header-section-number">3</span> Exploring sample metadata</a></li>
+<li><a class="active" href="exploring-sample-metadata.html"><span class="header-section-number">3</span> Exploring Sample Metadata</a></li>
+<li><a class="" href="interactive-sample-location-map.html"><span class="header-section-number">4</span> Interactive Sample Location Map</a></li>
+<li class="book-part">APPENDIX</li>
+<li><a class="" href="imap-github-repos.html"><span class="header-section-number">A</span> IMAP GitHub Repos</a></li>
+<li><a class="" href="snakemake-workflow.html"><span class="header-section-number">B</span> Snakemake Workflow</a></li>
+<li><a class="" href="session-information.html"><span class="header-section-number">C</span> Session Information</a></li>
+<li><a class="" href="references.html">References</a></li>
 </ul>
 
         <div class="book-extra">
@@ -64,18 +92,23 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="exploring-sample-metadata" class="section level1" number="3">
 <h1>
-<span class="header-section-number">3</span> Exploring sample metadata<a class="anchor" aria-label="anchor" href="#exploring-sample-metadata"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3</span> Exploring Sample Metadata<a class="anchor" aria-label="anchor" href="#exploring-sample-metadata"><i class="fas fa-link"></i></a>
 </h1>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div id="load-required-libraries" class="section level2" number="3.1">
+<h2>
+<span class="header-section-number">3.1</span> Load required libraries<a class="anchor" aria-label="anchor" href="#load-required-libraries"><i class="fas fa-link"></i></a>
+</h2>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="fu">knitr</span><span class="fu">::</span><span class="va"><a href="https://rdrr.io/pkg/knitr/man/opts_chunk.html">opts_chunk</a></span><span class="op">$</span><span class="fu">set</span><span class="op">(</span>comment <span class="op">=</span> <span class="cn">NA</span><span class="op">)</span></span></code></pre></div>
-<div id="read-size" class="section level2" number="3.1">
+</div>
+<div id="read-size" class="section level2" number="3.2">
 <h2>
-<span class="header-section-number">3.1</span> Read size<a class="anchor" aria-label="anchor" href="#read-size"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.2</span> Read size<a class="anchor" aria-label="anchor" href="#read-size"><i class="fas fa-link"></i></a>
 </h2>
 <p>The size of the reads can tell us how big is the dataset and can help to estimate the computational needs.</p>
 <p>Top five smallest project by read size</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"results/read_size_asc.csv"</span>, show_col_types <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span></code></pre></div>
 <pre><code># A tibble: 5 × 3
@@ -87,7 +120,7 @@
 4 SRR901106  PRJNA208226 114181
 5 SRR3725402 PRJNA322554 117824</code></pre>
 <p>Top five biggest project by read size</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://readr.tidyverse.org/reference/read_delim.html">read_csv</a></span><span class="op">(</span><span class="st">"results/read_size_desc.csv"</span>, show_col_types <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span> <span class="op"><a href="https://magrittr.tidyverse.org/reference/pipe.html">%&gt;%</a></span> </span>
 <span><span class="fu"><a href="https://rdrr.io/r/utils/head.html">head</a></span><span class="op">(</span><span class="fl">5</span><span class="op">)</span></span></code></pre></div>
 <pre><code># A tibble: 5 × 3
@@ -99,48 +132,34 @@
 4 SRR10245293 PRJNA477349 274398756
 5 SRR10245330 PRJNA477349 265408834</code></pre>
 </div>
-<div id="compare-read-size-by-bioproject" class="section level2" number="3.2">
+<div id="compare-read-size-by-bioproject" class="section level2" number="3.3">
 <h2>
-<span class="header-section-number">3.2</span> Compare read size by BioProject<a class="anchor" aria-label="anchor" href="#compare-read-size-by-bioproject"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.3</span> Compare read size by BioProject<a class="anchor" aria-label="anchor" href="#compare-read-size-by-bioproject"><i class="fas fa-link"></i></a>
 </h2>
 <div class="inline-figure"><img src="figures/read_size.svg"></div>
 <p><br></p>
 </div>
-<div id="read-size-by-variables-within-a-project" class="section level2" number="3.3">
+<div id="read-size-by-variables-within-a-project" class="section level2" number="3.4">
 <h2>
-<span class="header-section-number">3.3</span> Read size by variables within a project<a class="anchor" aria-label="anchor" href="#read-size-by-variables-within-a-project"><i class="fas fa-link"></i></a>
+<span class="header-section-number">3.4</span> Read size by variables within a project<a class="anchor" aria-label="anchor" href="#read-size-by-variables-within-a-project"><i class="fas fa-link"></i></a>
 </h2>
 <div class="inline-figure"><img src="figures/PRJNA477349_read_size.svg"></div>
 <p><br></p>
 <div class="inline-figure"><img src="figures/PRJNA208226_read_size.svg"></div>
 <p><br></p>
 </div>
-<div id="interactive-sample-gps-map" class="section level2" number="3.4">
-<h2>
-<span class="header-section-number">3.4</span> Interactive Sample GPS Map<a class="anchor" aria-label="anchor" href="#interactive-sample-gps-map"><i class="fas fa-link"></i></a>
-</h2>
-<p>Dropping pins on the map is possible if you have coordinate data, such as latitudes and longitudes of collection points. The pins represent different projects, and by hovering over a pin, you will be able to see information about the corresponding project.</p>
-<p>Below is the interactive map:</p>
-<div class="float">
-<embed src="map/sample_gps.html"></embed><div class="figcaption">Interactive GPS Map</div>
-</div>
-<p><em>Note: For the interactive experience, view this report in a browser that supports JavaScript.</em></p>
-<div class="inline-figure"><img src="images/sampling_points.png"></div>
-<p><br></p>
-
-</div>
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="downloading-ncbi-sra-metadata.html"><span class="header-section-number">2</span> Downloading NCBI-SRA metadata</a></div>
-<div class="empty"></div>
+<div class="next"><a href="interactive-sample-location-map.html"><span class="header-section-number">4</span> Interactive Sample Location Map</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#exploring-sample-metadata"><span class="header-section-number">3</span> Exploring sample metadata</a></li>
-<li><a class="nav-link" href="#read-size"><span class="header-section-number">3.1</span> Read size</a></li>
-<li><a class="nav-link" href="#compare-read-size-by-bioproject"><span class="header-section-number">3.2</span> Compare read size by BioProject</a></li>
-<li><a class="nav-link" href="#read-size-by-variables-within-a-project"><span class="header-section-number">3.3</span> Read size by variables within a project</a></li>
-<li><a class="nav-link" href="#interactive-sample-gps-map"><span class="header-section-number">3.4</span> Interactive Sample GPS Map</a></li>
+<li><a class="nav-link" href="#exploring-sample-metadata"><span class="header-section-number">3</span> Exploring Sample Metadata</a></li>
+<li><a class="nav-link" href="#load-required-libraries"><span class="header-section-number">3.1</span> Load required libraries</a></li>
+<li><a class="nav-link" href="#read-size"><span class="header-section-number">3.2</span> Read size</a></li>
+<li><a class="nav-link" href="#compare-read-size-by-bioproject"><span class="header-section-number">3.3</span> Compare read size by BioProject</a></li>
+<li><a class="nav-link" href="#read-size-by-variables-within-a-project"><span class="header-section-number">3.4</span> Read size by variables within a project</a></li>
 </ul>
 
       <div class="book-extra">
@@ -159,7 +178,7 @@
     <div class="row">
       <div class="col-12 col-md-6 mt-3">
         <p><strong><u><a class="text-light" href="https://microbiome.complexdatainsights.com"><big>IMAP:</big> Integrated Microbiome Analysis Pipelines</a></u></strong>: End-to-End Practical User Guides Using Integrated Approaches</p>
-<br><p>Authored by Teresia Mrema-Buza, Last updated: <b>2024-02-16</b>.</p>
+<br><p>Authored by Teresia Mrema-Buza, Last updated: <b>2024-02-17</b>.</p>
 <br>
 </div>
       <div class="col-12 col-md-6 mt-3">

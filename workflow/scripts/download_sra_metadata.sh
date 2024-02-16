@@ -21,6 +21,7 @@ esearch -db sra -query 'PRJNA322554[bioproject]' | efetch -format runinfo > data
 esearch -db sra -query 'PRJNA937707[bioproject]' | efetch -format runinfo > data/PRJNA937707_runinfo.csv
 esearch -db sra -query 'PRJNA589182[bioproject]' | efetch -format runinfo > data/PRJNA589182_runinfo.csv
 esearch -db sra -query 'PRJEB13870[bioproject]' | efetch -format runinfo > data/PRJEB13870_runinfo.csv
+esearch -db sra -query 'PRJNA208226[bioproject]' | efetch -format runinfo > data/PRJNA208226_runinfo.csv
 
 # Retrieving Detailed Metadata:
 # pysradb commands are used to fetch detailed metadata for the same bioprojects.
@@ -31,3 +32,4 @@ pysradb metadata PRJNA322554 --detailed > data/PRJNA322554_pysradb.csv
 pysradb metadata PRJNA937707 --detailed > data/PRJNA937707_pysradb.csv
 pysradb metadata PRJNA589182 --detailed > data/PRJNA589182_pysradb.csv
 pysradb metadata PRJEB13870 --detailed > data/PRJEB13870_pysradb.csv
+pysradb metadata PRJNA208226 --detailed > data/PRJNA208226_pysradb.csv

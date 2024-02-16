@@ -18,9 +18,9 @@ rmd_files:
     # - 04-beta-diversity.Rmd
     # - 05-statistical-analysis.Rmd
     # - 06-machine-learning.Rmd
-    # - 99-appendix.Rmd
-    # - 999-references.Rmd
-    # - 9999-footer.Rmd
+    - 99-appendix.Rmd
+    - 999-references.Rmd
+    - 9999-footer.Rmd
   
 
 

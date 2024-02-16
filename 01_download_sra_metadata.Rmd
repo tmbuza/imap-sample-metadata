@@ -1,16 +1,20 @@
 # Downloading NCBI-SRA metadata
 
-Different methods exist for downloading sample metadata deposited in the Sequence Read Archive (SRA) or the European Nucleotide Archive (ENA). Each process yields slightly different information, so it is an ideal habit to explore which method gives you what suits you best.
-For demo: We will explore more on sample metadata retrieved from five randomly selected microbiome BioProjects, including: 
+## Demo Projects for metadata exploration
+In this demonstration, we will delve into sample metadata obtained from various randomly selected public microbiome NCBI BioProjects. This includes information from:
 
 1. [PRJNA477349](https://www.ncbi.nlm.nih.gov/sra/?term=PRJNA477349): 16S rRNA from bushmeat samples collected from Tanzania Metagenome (Multispecies). 
 2. [PRJNA802976](https://www.ncbi.nlm.nih.gov/sra/?term=PRJNA802976): Changes to Gut Microbiota following Systemic Antibiotic Administration in Infants (Multispecies). 
 3. [PRJNA322554](https://www.ncbi.nlm.nih.gov/sra/?term=PRJNA322554): The Early Infant Gut Microbiome Varies In Association with a Maternal High-fat Diet (Multispecies).
 4. [PRJNA937707](https://www.ncbi.nlm.nih.gov/sra/?term=PRJNA937707): Microbiome associated with spotting disease in the purple sea urchin (Multispecies).
 5. [PRJNA589182](https://www.ncbi.nlm.nih.gov/sra/?term=PRJNA589182): 16S rDNA gene sequencing of the phyllosphere endophytic bacterial communities colonizing wild Populus trichocarpa Raw sequence reads(Multispecies).
+6. [PRJEB13870](https://www.ncbi.nlm.nih.gov/sra/?term=PRJEB13870): Dysbiosis of gut microbiota contributes to the pathogenesis of hypertension (Multispecies).
+7. [PRJNA208226](https://www.ncbi.nlm.nih.gov/sra/?term=PRJEB13870): Colonization patterns of soil microbial communities in the Atacama Desert (Multispecies).
 
+## Download Methods
+Various methods are available for downloading sample metadata from the Sequence Read Archive (SRA) or the European Nucleotide Archive (ENA). Each method provides slightly different information, making it prudent to explore and select the one that best aligns with your specific needs and preferences.
 
-## Manually via SRA `Run Selector`
+### Manually via SRA `Run Selector`
 We can manually retrieve metadata from the SRA database via the `SRA Run Selector`. 
 
 - Note that the SRA filename for metadata is automatically named SraRunTable.txt.
@@ -19,8 +23,26 @@ We can manually retrieve metadata from the SRA database via the `SRA Run Selecto
 
 ![Example screen shot of SRA Run Selector for metadata associated with the NCBI-SRA bioproject number PRJNA477349](images/sra_run_selector.png){#runselector}
 
+### Computationally via `Entrez Direct`
 
-## Computationally via `Entrez Direct`
+You can retrieve SRA metadata computationally using `Entrez Direct`, a set of tools provided by NCBI for accessing the Entrez databases. Here's a step-by-step guide:
+
+1. **Download Entrez Direct**
+   You can download and install `Entrez Direct` by following the instructions on the [NCBI GitHub repository](https://github.com/ncbi/edirect).
+
+2. **Add `Entrez Direct` to PATH**
+   After downloading, add the `edirect` folder to your system's PATH environment variable. This allows you to run `Entrez Direct` commands from any location in your terminal.
+
+```bash
+export PATH=$PATH:/path/to/edirect
+```
+> Make sure to replace "/path/to/edirect" with the actual path to the edirect folder on your system.
+
+3. **Download SRA Metadata**
+Use the following Entrez Direct commands to download SRA metadata for specific BioProjects. Replace "PRJ..." with the BioProject accessions of interest.
+
+
+
 ```bash
 #!/bin/bash
 
@@ -29,11 +51,13 @@ esearch -db sra -query 'PRJNA802976[bioproject]' | efetch -format runinfo >data/
 esearch -db sra -query 'PRJNA322554[bioproject]' | efetch -format runinfo >data/runinfo_PRJNA322554_metadata.csv;
 esearch -db sra -query 'PRJNA937707[bioproject]' | efetch -format runinfo >data/runinfo_PRJNA937707_metadata.csv;
 esearch -db sra -query 'PRJNA589182[bioproject]' | efetch -format runinfo >data/runinfo_PRJNA589182_metadata.csv;
+esearch -db sra -query 'PRJEB13870[bioproject]' | efetch -format runinfo >data/runinfo_PRJEB13870_metadata.csv;
+esearch -db sra -query 'PRJNA208226[bioproject]' | efetch -format runinfo >data/runinfo_PRJNA208226_metadata.csv;
 ```
 
-## Computationally using `pysradb`
+### Computationally using `pysradb`
 
-### Create pysradb environment
+1. **Create pysradb environment**
 The `pysradb` tool can obtain metadata from SRA and ENA. Here we will create an independent environment and install pysradb. We can delete this env when no longer needed.
 To learn more [click here](https://saket-choudhary.me/pysradb/quickstart.html).
 
@@ -45,7 +69,7 @@ conda activate base
 conda create -c bioconda -n pysradb PYTHON=3 pysradb
 ```
 
-### Using a `bash` script
+2. **Download using a `bash` script**
 ```bash
 #!/bin/bash
 # Shell script: workflow/scripts/pysradb_sra_metadata.sh
@@ -55,9 +79,27 @@ pysradb metadata PRJNA802976 --detailed >data/PRJNA802976_pysradb.csv
 pysradb metadata PRJNA322554 --detailed >data/PRJNA322554_pysradb.csv
 pysradb metadata PRJNA937707 --detailed >data/PRJNA937707_pysradb.csv
 pysradb metadata PRJNA589182 --detailed >data/PRJNA589182_pysradb.csv
+pysradb metadata PRJEB13870 --detailed >data/PRJEB13870_pysradb.csv
+pysradb metadata PRJNA208226 --detailed >data/PRJNA208226_pysradb.csv
 ```
 
-### Using a `python` script
+
+```{r download_script, results='asis', echo=FALSE}
+# # Specify the path to your shell script file
+# script_path <- "workflow/scripts/download_sra_metadata.sh"
+
+# # Read the content of the shell script file
+# script_content <- readLines(script_path)
+
+# # Print the content in the R Markdown document
+# cat("```r\n")
+# cat(script_content, sep = "\n", collapse = "\n")
+# cat("\n```")
+
+```
+
+
+3. **Download using a `python` script**
 ```python
 # Python script: workflow/scripts/pysradb_sra_metadata.py
 
@@ -87,18 +129,31 @@ df.to_csv('data/PRJNA937707_pysradb_metadata.csv', index=False)
 db = SRAweb()
 df = db.sra_metadata('PRJNA589182', detailed=True)
 df.to_csv('data/PRJNA589182_pysradb_metadata.csv', index=False)
+
+db = SRAweb()
+df = db.sra_metadata('PRJEB13870', detailed=True)
+df.to_csv('data/PRJEB13870_pysradb_metadata.csv', index=False)
+
+db = SRAweb()
+df = db.sra_metadata('PRJNA208226', detailed=True)
+df.to_csv('data/PRJNA208226_pysradb_metadata.csv', index=False)
 ```
 > I sometimes experience ConnectionError when using python method. Try a different method if that happens.
 
 
-## Example querying SRA or ENA with a keyword
+## Filtering user-specified information
 > Using keywords to search any extensive database helps filter user-specified information, such as certain disease-related studies. 
 
 ```bash
 #!/bin/bash
+# Install pysradb using mamba package manager
 mamba install -c bioconda pysradb
 
-pysradb search --db sra -q Amplicon --max 100 >sra_amplicon_studies.csv
+# Search the SRA database for studies related to "Amplicon" and limit to 100 results
+pysradb search --db sra -q Amplicon --max 100 > sra_amplicon_studies.csv
 
-pysradb search --db ena -q Amplicon --max 100 >ena_amplicon_studies.csv
+# Search the ENA database for studies related to "Amplicon" and limit to 100 results
+pysradb search --db ena -q Amplicon --max 100 > ena_amplicon_studies.csv
+
 ```
+

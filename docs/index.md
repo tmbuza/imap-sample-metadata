@@ -2,7 +2,7 @@
 title: "<big>IMAP:</big> Integrated Microbiome Analysis Pipelines"
 subtitle: "End-to-End Practical User Guides Using Integrated Approaches"
 date:
-- <b>2024-02-14</b>
+- <b>2024-02-16</b>
 author: Teresia Mrema-Buza
 site: bookdown::bookdown_site
 documentclass: book
@@ -25,7 +25,6 @@ biblio-style: apalike
 description: |
   | This part will be added before release.
 ---
-
 
 
 

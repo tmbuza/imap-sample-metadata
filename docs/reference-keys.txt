@@ -14,4 +14,4 @@ exploring-sample-metadata
 read-size
 compare-read-size-by-bioproject
 read-size-by-variables-within-a-project
-explore-project-sampling-points
+interactive-sample-gps-map

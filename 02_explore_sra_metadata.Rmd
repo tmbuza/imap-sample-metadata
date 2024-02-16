@@ -23,24 +23,31 @@ head(5)
 
 ## Compare read size by BioProject
 
-![](images/read_size.svg)
+![](figures/read_size.svg)
 
 <br>
 
 ## Read size by variables within a project
 
-![](images/PRJNA477349_read_size.svg)
+![](figures/PRJNA477349_read_size.svg)
 
 <br>
 
-![](images/PRJNA208226_read_size.svg)
+![](figures/PRJNA208226_read_size.svg)
 
 <br>
 
-## Explore project sampling points
-> Dropping pins on the map is posible if you have coordinate data, the latitudes and longitude of collection points.
-> By hovering on the pin you will be able to see the corresponding project, when viewed interactively.
+## Interactive Sample GPS Map
 
-![](images/sample_gps.png)
+Dropping pins on the map is possible if you have coordinate data, such as latitudes and longitudes of collection points. The pins represent different projects, and by hovering over a pin, you will be able to see information about the corresponding project.
+
+Below is the interactive map:
+
+![Interactive GPS Map](map/sample_gps.html)
+
+*Note: For the interactive experience, view this report in a browser that supports JavaScript.*
+
+![](images/sampling_points.png)
+
 
 <br>

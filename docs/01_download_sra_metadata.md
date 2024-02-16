@@ -1,4 +1,5 @@
 # Downloading NCBI-SRA metadata
+
 Different methods exist for downloading sample metadata deposited in the Sequence Read Archive (SRA) or the European Nucleotide Archive (ENA). Each process yields slightly different information, so it is an ideal habit to explore which method gives you what suits you best.
 For demo: We will explore more on sample metadata retrieved from five randomly selected microbiome BioProjects, including: 
 

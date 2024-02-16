@@ -7,7 +7,7 @@ import platform
 df = pd.read_csv('data/metadata.csv')
 
 # Create a base map
-mymap = folium.Map(location=[df['latitude'].mean(), df['longitude'].mean()], zoom_start=3, tiles="cartodb positron")
+sample_gps = folium.Map(location=[df['latitude'].mean(), df['longitude'].mean()], zoom_start=3, tiles="cartodb positron")
 
 # Add markers for each row in the DataFrame
 for _, row in df.iterrows():
@@ -21,22 +21,22 @@ for _, row in df.iterrows():
                   nan_fill_color="white",
                   legend_name="SRA Sample Metadata Analysis",
                   name="SRA sample locations",
-                  ).add_to(mymap)
+                  ).add_to(sample_gps)
 
 # Save the map
-mymap.save("images/mymap.html")
+sample_gps.save("map/sample_gps.html")
 
 
-import subprocess
-import platform
+# import subprocess
+# import platform
 
-# Open HTML files using Bash command
-system = platform.system()
-commands = {"Darwin": ["open", "images/mymap.html"],
-            "Windows": ["start", "images/mymap.html"],
-            "Linux": ["xdg-open", "images/mymap.html"]}
+# # Open HTML files using Bash command
+# system = platform.system()
+# commands = {"Darwin": ["open", "map/mymap.html"],
+#             "Windows": ["start", "map/mymap.html"],
+#             "Linux": ["xdg-open", "map/mymap.html"]}
 
-if system in commands:
-    subprocess.run(commands[system])
-else:
-    print(f"Unsupported operating system ({system}). Please open the 'html' file manually.")
+# if system in commands:
+#     subprocess.run(commands[system])
+# else:
+#     print(f"Unsupported operating system ({system}). Please open the 'html' file manually.")

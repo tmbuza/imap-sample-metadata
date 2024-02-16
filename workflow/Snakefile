@@ -6,36 +6,170 @@ min_version("6.10.0")
 # Configuration file containing all user-specified settings
 configfile: "config/config.yml"
 
-
-import os
-import csv
-import pandas as pd
-
-
-BIOPROJ=pd.read_csv('data/metadata.csv').bioproject.unique().tolist()
-
-with open('data/bioproj_accessions.txt', 'w') as f:
-    print(BIOPROJ, file=f)
+# import os
+# import csv
+# import pandas as pd
 
 
-report: "report/workflow.rst"
+# BIOPROJ=pd.read_csv('data/metadata.csv').bioproject.unique().tolist()
 
-include: "rules/process_tidy_metadata.smk"
-include: "rules/merge_bioproj_metadata.smk"
-include: "rules/read_size_table.smk"
-# include: "rules/plot_var_read_freq.smk"
-include: "rules/plot_sampling_map.smk"
-include: "rules/create_mapping_files.smk"
-include: "rules/rmd_report.smk"
+# with open('data/bioproj_accessions.txt', 'w') as f:
+#     print(BIOPROJ, file=f)
+
+# Get the bioprojects from the configuration file
+bioprojects = config["bioproject"]
+
+# # Debug information
+# print("Configuration:")
+# print(config)
+# print("Bioprojects:")
+# print(bioprojects)
 
 
+# include: "rules/create_mapping_files.smk"
+# include: "rules/rmd_report.smk"
 
 rule all:
     input:
+        "figures/read_size.png",
+        "reports/snakemake_report.html",
+        "reports/project_tree.txt",
+        "dags/rulegraph.png",
+        "dags/rulegraph.svg",
+        "map/sample_gps.html",
+
         "config/pe_samples.tsv",
         "config/pe_units.tsv",
-        "resources/metadata/pe_metadata.tsv",
-        # "figures/read_size.svg",
-        "images/sample_gps_py.html",
-        "index.html",
+        "resources/pe_metadata.tsv",      
+        "config/se_samples.tsv",
+        "config/se_units.tsv",
+        "resources/se_metadata.tsv",      
 
+
+# Rule to generate the rule graph and create the dags folder if it doesn't exist
+rule generate_rulegraph:
+    output:
+        directory("dags"),
+        "dags/rulegraph.png",
+        "dags/rulegraph.svg",
+
+    shell:
+        """
+        snakemake --unlock;
+        mkdir -p {output[0]};
+        snakemake --rulegraph | dot -Tpng > {output[1]};
+        snakemake --rulegraph | dot -Tsvg > {output[2]};
+        """
+
+# Rule to generate a directory tree
+rule generate_tree:
+    output:
+        directory("output"),
+        "reports/project_tree.txt"
+    shell:
+        """
+        snakemake --unlock \
+        && mkdir -p {output[0]} \
+        && echo "Project Tree" > {output[1]} \
+        && tree -L 2 . >> {output[1]}
+        """
+
+# Rule to generate SnakeMake report
+rule snakemake_report:
+    output:
+        "reports/snakemake_report.html"
+    shell:
+        "snakemake --keep-going --use-conda --report {output[0]}"
+
+
+rule process_tidy_metadata:
+    input:
+        table="data/{bioproject}_SraRunTable.csv",
+    output:
+        "data/{bioproject}_tidy_metadata.csv",
+    conda:
+        "envs/environment.yml",
+    script:
+        "scripts/process_tidy_metadata.R"
+
+# Merged project metadata
+rule final_metadata_file:
+    input:
+        expand("data/{bioproject}_tidy_metadata.csv", bioproject=bioprojects),
+    output:
+        "data/metadata.csv",
+    conda:
+        "envs/environment.yml",
+    script:
+        "scripts/merge_proj_metadata.R"
+
+
+# Get read size
+rule explore_sample_read_size:
+    input:
+        "data/metadata.csv",
+    output:
+        "results/read_size_asc.csv",
+        "results/read_size_desc.csv",
+    conda:
+        "envs/environment.yml"
+    script:
+        "scripts/explore_read_size.R"
+
+
+# Rule to plot variable frequency
+rule explore_graphically:
+    input:
+        "data/metadata.csv",
+        "results/read_size_asc.csv",
+        "results/read_size_desc.csv",
+    output:
+        png="figures/read_size.png",
+        svg="figures/read_size.svg",
+        prjna477349_png="figures/PRJNA477349_read_size.png",
+        prjna477349_svg="figures/PRJNA477349_read_size.svg",
+        prjna208226_png="figures/PRJNA208226_read_size.png",
+        prjna208226_svg="figures/PRJNA208226_read_size.svg"
+    conda:
+        "envs/environment.yml"
+    script:
+        "scripts/plot_var_freq.R"
+
+
+# Get sample location 
+rule map_sampling_points:
+    input:
+        "workflow/scripts/leaflet.py",
+        "data/metadata.csv",
+    output:
+        "map/sample_gps.html",
+    conda:
+        "envs/environment.yml",
+    shell:
+        "python {input}"
+
+
+rule paired_end_mapping_files:  
+    input:
+        "data/metadata.csv"
+    output:
+        "config/pe_samples.tsv",
+        "config/pe_units.tsv",
+        "resources/pe_metadata.tsv",
+    conda:
+        "envs/environment.yml"
+    script:
+        "scripts/paired_end_mapping_files.R" 
+
+
+rule single_end_mapping_files:  
+    input:
+        "data/metadata.csv"
+    output:
+        "config/se_samples.tsv",
+        "config/se_units.tsv",
+        "resources/se_metadata.tsv",
+    conda:
+        "envs/environment.yml"
+    script:
+        "scripts/single_end_mapping_files.R"        

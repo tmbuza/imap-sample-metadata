@@ -8,8 +8,8 @@ read_csv("data/metadata.csv", show_col_types = FALSE) %>%
   labs(x = "NCBI BioProject", y = "Read size (milion bases)", fill="BioProject") +
   theme_light()
 
-ggsave(file="figures/read_size.png", width=10, height=10)
-ggsave(file="figures/read_size.svg", width=10, height=10)
+ggsave(file="figures/read_size.png", width=5, height=6)
+ggsave(file="figures/read_size.svg", width=5, height=6)
 
 
 
@@ -21,8 +21,8 @@ read_csv("data/PRJNA477349_tidy_metadata.csv", show_col_types = FALSE) %>%
   labs(x = "PRJNA477349 BioProject", y = "Read size (milion bases)", fill="Ecosystem") +
   theme_light()
 
-ggsave(file="figures/PRJNA477349_read_size.png", width=10, height=10)
-ggsave(file="figures/PRJNA477349_read_size.svg", width=10, height=10)
+ggsave(file="figures/PRJNA477349_read_size.png", width=5, height=6)
+ggsave(file="figures/PRJNA477349_read_size.svg", width=5, height=6)
 
 
 read_csv("data/PRJNA208226_tidy_metadata.csv", show_col_types = FALSE) %>% 
@@ -33,5 +33,5 @@ read_csv("data/PRJNA208226_tidy_metadata.csv", show_col_types = FALSE) %>%
   labs(x = "PRJNA208226 BioProject", y = "Read size (milion bases)", fill="Location") +
   theme_light()
 
-ggsave(file="figures/PRJNA208226_read_size.png", width=10, height=10)
-ggsave(file="figures/PRJNA208226_read_size.svg", width=10, height=10)
+ggsave(file="figures/PRJNA208226_read_size.png", width=5, height=6)
+ggsave(file="figures/PRJNA208226_read_size.svg", width=5, height=6)

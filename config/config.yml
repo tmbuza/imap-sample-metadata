@@ -8,6 +8,7 @@ pe_samples: config/pe_samples.tsv
 pe_units: config/pe_units.tsv
 # se_units: config/se_units.tsv
 
+# List of bioprojects
 bioproject:
   - PRJNA477349
   - PRJNA802976
@@ -15,3 +16,4 @@ bioproject:
   - PRJNA937707
   - PRJNA589182
   - PRJEB13870
+  - PRJNA208226

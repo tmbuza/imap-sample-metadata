@@ -3,7 +3,6 @@ library(tidyverse, suppressPackageStartupMessages())
 
 if (!dir.exists("config")) {dir.create("config")}
 if (!dir.exists("resources")) {dir.create("resources")}
-if (!dir.exists("resources/metadata")) {dir.create("resources/metadata")}
 
 samples <- read_csv("data/metadata.csv", show_col_types = FALSE) %>%  
   rename_all(tolower) %>% 
@@ -31,4 +30,4 @@ metadata %>%
 
 
 metadata %>%
-  write_tsv("resources/metadata/se_metadata.tsv")
+  write_tsv("resources/se_metadata.tsv")

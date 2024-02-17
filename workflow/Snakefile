@@ -15,20 +15,21 @@ bioprojects = config["bioproject"]
 # print(bioprojects)
 
 
-rule all:
+rule FINAL_TARGET:
     input:
-        "figures/read_size.png",
-        "reports/snakemake_report.html",
-        "reports/project_tree.txt",
-        "dags/rulegraph.png",
-        "dags/rulegraph.svg",
-        "map/sample_gps.html",
-        "config/pe_samples.tsv",
-        "config/pe_units.tsv",
-        "resources/pe_metadata.tsv",      
-        "config/se_samples.tsv",
-        "config/se_units.tsv",
-        "resources/se_metadata.tsv",      
+        "docs/index.html"
+        # "figures/read_size.png",
+        # "reports/snakemake_report.html",
+        # "reports/project_tree.txt",
+        # "dags/rulegraph.png",
+        # "dags/rulegraph.svg",
+        # "map/sample_gps.html",
+        # "config/pe_samples.tsv",
+        # "config/pe_units.tsv",
+        # "resources/pe_metadata.tsv",      
+        # "config/se_samples.tsv",
+        # "config/se_units.tsv",
+        # "resources/se_metadata.tsv",      
 
 
 # Rule to generate the rule graph and create the dags folder if it doesn't exist
@@ -158,3 +159,22 @@ rule single_end_mapping_files:
         "envs/environment.yml"
     script:
         "scripts/single_end_mapping_files.R"        
+
+rule render_bs4_book:
+    input:
+        "figures/read_size.png",
+        "reports/snakemake_report.html",
+        "reports/project_tree.txt",
+        "dags/rulegraph.png",
+        "dags/rulegraph.svg",
+        "map/sample_gps.html",
+        "config/pe_samples.tsv",
+        "config/pe_units.tsv",
+        "resources/pe_metadata.tsv",      
+        "config/se_samples.tsv",
+        "config/se_units.tsv",
+        "resources/se_metadata.tsv",
+    output:
+        "docs/index.html"
+    shell:
+        "R -e 'bookdown::render_book(input = \"index.Rmd\", output_format = \"bookdown::bs4_book\", output_dir = \"docs\")'"

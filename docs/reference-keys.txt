@@ -16,5 +16,5 @@ compare-read-size-by-bioproject
 read-size-by-variables-within-a-project
 interactive-sample-location-map
 imap-github-repos
-snakemake-workflow
+sample-metadata-rulegraph
 session-information

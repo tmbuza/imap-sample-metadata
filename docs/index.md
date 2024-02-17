@@ -42,7 +42,7 @@ description: |
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
 
-# <big>Getting Started with Metadata Exploration</big> {-#metadata-exploration}
+# <u>IMAP-Part 2</u>: Microbiome Sample Metadata Exploration</big> {-#metadata-exploration}
 
 <br>
 <br>

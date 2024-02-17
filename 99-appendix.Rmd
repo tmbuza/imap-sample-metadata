@@ -18,9 +18,10 @@
 | [IMAP-SUMMARY](https://github.com/tmbuza/imap-snakemake-workflows/) | Summary of snakemake workflows for microbiome data analysis | [In-progress](https://tmbuza.github.io/imap-snakemake-workflows/) |
 ```
 
-## Snakemake Rule Graph: IMAP-PART 02
+# Sample Metadata Rulegraph
 
 ![](dags/rulegraph.svg)
+
 
 # Session Information
 

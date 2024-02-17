@@ -3,12 +3,12 @@ Project Tree
 ├── 00-preface.Rmd
 ├── 01_download_sra_metadata.Rmd
 ├── 02_explore_sra_metadata.Rmd
-├── 404.html
 ├── 99-appendix.Rmd
 ├── 999-references.Rmd
 ├── 9999-footer.Rmd
 ├── LICENSE
 ├── README.md
+├── Rplots.pdf
 ├── _bookdown.yml
 ├── _common.R
 ├── _output.yml
@@ -47,16 +47,26 @@ Project Tree
 │   ├── 01_download_sra_metadata.md
 │   ├── 02_explore_sra_metadata.md
 │   ├── 404.html
+│   ├── 99-appendix.md
+│   ├── 999-references.md
+│   ├── 9999-footer.md
+│   ├── dags
 │   ├── downloading-ncbi-sra-metadata.html
 │   ├── exploring-sample-metadata.html
 │   ├── figures
 │   ├── images
+│   ├── imap-github-repos.html
 │   ├── index.html
 │   ├── index.md
+│   ├── interactive-sample-location-map.html
 │   ├── libs
 │   ├── map
 │   ├── reference-keys.txt
+│   ├── references.html
 │   ├── search.json
+│   ├── search_index.json
+│   ├── session-information.html
+│   ├── snakemake-workflow.html
 │   ├── style.css
 │   └── understanding-sample-metadata.html
 ├── figures
@@ -103,21 +113,18 @@ Project Tree
 │   └── snakemake_report.html
 ├── resources
 │   ├── pe_metadata.tsv
-│   └── se_metadata.tsv
+│   ├── se_metadata.tsv
+│   └── session_info.txt
 ├── results
 │   ├── read_size_asc.csv
 │   └── read_size_desc.csv
-├── sample-metadata.html
-├── sample-metadata.md
 ├── sample-metadata.rds
 ├── style.css
-├── welcome-to-imap.html
 └── workflow
     ├── Snakefile
     ├── envs
-    ├── report
     ├── rules
     ├── schemas
     └── scripts
 
-28 directories, 92 files
+28 directories, 99 files

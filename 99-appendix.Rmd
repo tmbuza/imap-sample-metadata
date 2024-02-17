@@ -18,16 +18,9 @@
 | [IMAP-SUMMARY](https://github.com/tmbuza/imap-snakemake-workflows/) | Summary of snakemake workflows for microbiome data analysis | [In-progress](https://tmbuza.github.io/imap-snakemake-workflows/) |
 ```
 
-# Snakemake Workflow
+## Snakemake Rule Graph: IMAP-PART 02
 
 ![](dags/rulegraph.svg)
-
-In our report, we include a visual representation of the rule graph to provide a clear and intuitive overview of the workflow structure. The rule graph illustrates the relationships between different rules, showcasing the flow of data and dependencies within our analysis pipeline. This visual representation helps readers, collaborators, or reviewers understand the logical sequence of tasks in exploring sample metadata.
-
-By displaying the rule graph, we aim to enhance the transparency of our workflow, making it easier for others to grasp the organization and dependencies of our computational analysis. This graphical representation serves as a valuable reference, offering insights into the intricate connections between rules and facilitating a deeper understanding of the overall workflow design in the context of exploring sample metadata.
-
-
-
 
 # Session Information
 

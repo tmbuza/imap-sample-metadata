@@ -133,7 +133,7 @@
 <g id="node8" class="node">
 <title>7</title>
 <path fill="none" stroke="#d85656" stroke-width="2" d="M577.24,-180C577.24,-180 525.99,-180 525.99,-180 519.99,-180 513.99,-174 513.99,-168 513.99,-168 513.99,-156 513.99,-156 513.99,-150 519.99,-144 525.99,-144 525.99,-144 577.24,-144 577.24,-144 583.24,-144 589.24,-150 589.24,-156 589.24,-156 589.24,-168 589.24,-168 589.24,-174 583.24,-180 577.24,-180"/>
-<text text-anchor="middle" x="551.61" y="-158.12" font-family="sans" font-size="10.00">generate_tree</text>
+<text text-anchor="middle" x="551.61" y="-158.12" font-family="sans" font-size="10.00">project_tree</text>
 </g>
 <!-- 7&#45;&gt;1 -->
 <g id="edge8" class="edge">

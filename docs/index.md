@@ -46,7 +46,7 @@ description: |
 
 <br>
 <br>
-![Book cover](images/metadata.png)
+![](images/metadata.png)
 <br>
 <br>
 

@@ -52,6 +52,7 @@ source("_common.R")
 <br>
 <br>
 
-In this chapter, we explore the significance of microbiome sample metadata, shedding light on its crucial role in extracting meaningful insights from microbiome datasets. In addition to theoretical insights, we'll provide hands-on demonstrations. Learn how to download Sequence Read Archive (SRA) metadata, gaining practical experience in obtaining detailed information about microbiome samples. We will also guide you through the exploration of associated fixed and experimental variables, showcasing how to navigate and interpret these critical components. Let's dive into the fundamentals of microbiome sample metadata to enhance the depth of your analysis.
 
-Happy exploring!
+## Navigating microbiome sample metadata {-}
+In this chapter, delve into the essential realm of microbiome sample metadata. Uncover its pivotal role in extracting meaningful insights from microbiome datasets through both theoretical understanding and hands-on demonstrations. Gain practical experience by learning how to download Sequence Read Archive (SRA) metadata, obtaining detailed information about microbiome samples. We will guide you through the exploration of associated fixed and experimental variables, demonstrating how to navigate and interpret these critical components. Let's dive into the fundamentals of microbiome sample metadata, enhancing the depth of your analysis. Happy exploring!
+

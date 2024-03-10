@@ -2,7 +2,7 @@
 title: "<big>IMAP:</big> Integrated Microbiome Analysis Pipelines"
 subtitle: "End-to-End Practical User Guides Using Integrated Approaches"
 date:
-- <b>2024-02-17</b>
+- <b>2024-03-10</b>
 author: Teresia Mrema-Buza
 site: bookdown::bookdown_site
 documentclass: book
@@ -17,10 +17,10 @@ citation_package:
   - natbib
   - biblatex
   - amsplain
-url: https://tmbuza.github.io/imap-project-overview/
+url: https://tmbuza.github.io/imap-sample-metadata/
 cover-image: images/planning.png
 email_address: "ndelly@gmail.com"
-github-repo: tmbuza/imap-project-overview
+github-repo: tmbuza/imap-sample-metadata
 biblio-style: apalike
 description: |
   | This part will be added before release.
@@ -42,7 +42,7 @@ description: |
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 
 
-# <u>IMAP-Part 2</u>: Microbiome Sample Metadata Exploration</big> {-#metadata-exploration}
+# <u>IMAP-Part 02</u>: Microbiome Sample Metadata Exploration</big> {-#metadata-exploration}
 
 <br>
 <br>
@@ -50,6 +50,7 @@ description: |
 <br>
 <br>
 
-In this chapter, we explore the significance of microbiome sample metadata, shedding light on its crucial role in extracting meaningful insights from microbiome datasets. In addition to theoretical insights, we'll provide hands-on demonstrations. Learn how to download Sequence Read Archive (SRA) metadata, gaining practical experience in obtaining detailed information about microbiome samples. We will also guide you through the exploration of associated fixed and experimental variables, showcasing how to navigate and interpret these critical components. Let's dive into the fundamentals of microbiome sample metadata to enhance the depth of your analysis.
 
-Happy exploring!
+## Navigating microbiome sample metadata {-}
+In this chapter, delve into the essential realm of microbiome sample metadata. Uncover its pivotal role in extracting meaningful insights from microbiome datasets through both theoretical understanding and hands-on demonstrations. Gain practical experience by learning how to download Sequence Read Archive (SRA) metadata, obtaining detailed information about microbiome samples. We will guide you through the exploration of associated fixed and experimental variables, demonstrating how to navigate and interpret these critical components. Let's dive into the fundamentals of microbiome sample metadata, enhancing the depth of your analysis. Happy exploring!
+

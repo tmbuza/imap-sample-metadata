@@ -3,18 +3,22 @@
 if (!require('base')) {
   install.packages('base', dependencies = TRUE)
 }
+library('base')
 
 if (!require('bookdown')) {
   install.packages('bookdown', dependencies = TRUE)
 }
+library('bookdown')
 
 if (!require('knitr')) {
   install.packages('knitr', dependencies = TRUE)
 }
+library('knitr')
 
 if (!require('rmarkdown')) {
   install.packages('rmarkdown', dependencies = TRUE)
 }
+library('rmarkdown')
 
 
 knitr::write_bib(c(.packages(), 'base','bookdown', 'knitr','rmarkdown'), 'library/packages.bib')

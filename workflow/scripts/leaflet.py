@@ -1,5 +1,5 @@
 import pandas as pd
-import folium # Creates Web Maps from your data
+import folium # Creates Web Maps from your data. On the command line 'pip install folium' if not installed yet.
 import subprocess
 import platform
 
@@ -7,7 +7,7 @@ import platform
 df = pd.read_csv('data/metadata.csv')
 
 # Create a base map
-sample_gps = folium.Map(location=[df['latitude'].mean(), df['longitude'].mean()], zoom_start=3, tiles="cartodb positron")
+sample_gps = folium.Map(location=[df['latitude'].mean(), df['longitude'].mean()], zoom_start=1, tiles="cartodb positron")
 
 # Add markers for each row in the DataFrame
 for _, row in df.iterrows():
@@ -27,16 +27,3 @@ for _, row in df.iterrows():
 sample_gps.save("map/sample_gps.html")
 
 
-# import subprocess
-# import platform
-
-# # Open HTML files using Bash command
-# system = platform.system()
-# commands = {"Darwin": ["open", "map/mymap.html"],
-#             "Windows": ["start", "map/mymap.html"],
-#             "Linux": ["xdg-open", "map/mymap.html"]}
-
-# if system in commands:
-#     subprocess.run(commands[system])
-# else:
-#     print(f"Unsupported operating system ({system}). Please open the 'html' file manually.")

@@ -6,16 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>4 Interactive Sample Location Map | IMAP: Integrated Microbiome Analysis Pipelines</title>
 <meta name="author" content="Teresia Mrema-Buza">
-<meta name="description" content="In this section, an interactive map is provided to explore sample locations based on their coordinates. Dropping pins on the map is possible if you have coordinate data, such as latitudes and...">
+<meta name="description" content="In this section, an interactive map is provided to facilitate exploration of sample locations based on their coordinates. You can drop pins on the map if you have coordinate data, such as...">
 <meta name="generator" content="bookdown 0.37 with bs4_book()">
 <meta property="og:title" content="4 Interactive Sample Location Map | IMAP: Integrated Microbiome Analysis Pipelines">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://tmbuza.github.io/imap-sample-metadata/interactive-sample-location-map.html">
 <meta property="og:image" content="https://tmbuza.github.io/imap-sample-metadata/images/planning.png">
-<meta property="og:description" content="In this section, an interactive map is provided to explore sample locations based on their coordinates. Dropping pins on the map is possible if you have coordinate data, such as latitudes and...">
+<meta property="og:description" content="In this section, an interactive map is provided to facilitate exploration of sample locations based on their coordinates. You can drop pins on the map if you have coordinate data, such as...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="4 Interactive Sample Location Map | IMAP: Integrated Microbiome Analysis Pipelines">
-<meta name="twitter:description" content="In this section, an interactive map is provided to explore sample locations based on their coordinates. Dropping pins on the map is possible if you have coordinate data, such as latitudes and...">
+<meta name="twitter:description" content="In this section, an interactive map is provided to facilitate exploration of sample locations based on their coordinates. You can drop pins on the map if you have coordinate data, such as...">
 <meta name="twitter:image" content="https://tmbuza.github.io/imap-sample-metadata/images/planning.png">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -55,6 +55,7 @@
 <li><a class="" href="understanding-sample-metadata.html"><span class="header-section-number">1</span> Understanding Sample Metadata</a></li>
 <li><a class="" href="downloading-ncbi-sra-metadata.html"><span class="header-section-number">2</span> Downloading NCBI-SRA metadata</a></li>
 <li><a class="" href="exploring-sample-metadata.html"><span class="header-section-number">3</span> Exploring Sample Metadata</a></li>
+<li class="book-part">SAMPLE LOCATIONS</li>
 <li><a class="active" href="interactive-sample-location-map.html"><span class="header-section-number">4</span> Interactive Sample Location Map</a></li>
 <li class="book-part">APPENDIX</li>
 <li><a class="" href="imap-github-repos.html"><span class="header-section-number">A</span> IMAP GitHub Repos</a></li>
@@ -72,13 +73,61 @@
 <h1>
 <span class="header-section-number">4</span> Interactive Sample Location Map<a class="anchor" aria-label="anchor" href="#interactive-sample-location-map"><i class="fas fa-link"></i></a>
 </h1>
-In this section, an interactive map is provided to explore sample locations based on their coordinates. Dropping pins on the map is possible if you have coordinate data, such as latitudes and longitudes of collection points. The pins represent different projects, and by hovering over a pin, you will be able to see information about the corresponding project.
+<p>In this section, an interactive map is provided to facilitate exploration of sample locations based on their coordinates. You can drop pins on the map if you have coordinate data, such as latitudes and longitudes of collection points. These pins can represent different projects or any user-selected metadata.</p>
+<div id="python-code-to-generate-the-sample-location-map" class="section level2" number="4.1">
+<h2>
+<span class="header-section-number">4.1</span> Python Code to Generate the Sample Location Map<a class="anchor" aria-label="anchor" href="#python-code-to-generate-the-sample-location-map"><i class="fas fa-link"></i></a>
+</h2>
+<p>To generate the sample location map, first, ensure you have the <code>folium</code> package installed. You can install it using pip:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb12-1"><a href="interactive-sample-location-map.html#cb12-1" tabindex="-1"></a><span class="ex">pip</span> install folium</span></code></pre></div>
+<p>This Python code below utilizes Pandas to read metadata from a CSV file, creates a base map using Folium, and adds markers for each sample location. The resulting interactive map is saved as <code>sample_gps.html</code> in the <code>map</code> directory.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="interactive-sample-location-map.html#cb13-1" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb13-2"><a href="interactive-sample-location-map.html#cb13-2" tabindex="-1"></a><span class="im">import</span> folium <span class="co"># Creates Web Maps from your data. On the command line 'pip install folium' if not installed yet.</span></span>
+<span id="cb13-3"><a href="interactive-sample-location-map.html#cb13-3" tabindex="-1"></a><span class="im">import</span> subprocess</span>
+<span id="cb13-4"><a href="interactive-sample-location-map.html#cb13-4" tabindex="-1"></a><span class="im">import</span> platform</span>
+<span id="cb13-5"><a href="interactive-sample-location-map.html#cb13-5" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="interactive-sample-location-map.html#cb13-6" tabindex="-1"></a><span class="co"># Read the DataFrame from your file (replace 'your_file.csv' with your actual file path)</span></span>
+<span id="cb13-7"><a href="interactive-sample-location-map.html#cb13-7" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'data/metadata.csv'</span>)</span>
+<span id="cb13-8"><a href="interactive-sample-location-map.html#cb13-8" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="interactive-sample-location-map.html#cb13-9" tabindex="-1"></a><span class="co"># Create a base map</span></span>
+<span id="cb13-10"><a href="interactive-sample-location-map.html#cb13-10" tabindex="-1"></a>sample_gps <span class="op">=</span> folium.Map(location<span class="op">=</span>[df[<span class="st">'latitude'</span>].mean(), df[<span class="st">'longitude'</span>].mean()], zoom_start<span class="op">=</span><span class="dv">1</span>, tiles<span class="op">=</span><span class="st">"cartodb positron"</span>)</span>
+<span id="cb13-11"><a href="interactive-sample-location-map.html#cb13-11" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="interactive-sample-location-map.html#cb13-12" tabindex="-1"></a><span class="co"># Add markers for each row in the DataFrame</span></span>
+<span id="cb13-13"><a href="interactive-sample-location-map.html#cb13-13" tabindex="-1"></a><span class="cf">for</span> _, row <span class="kw">in</span> df.iterrows():</span>
+<span id="cb13-14"><a href="interactive-sample-location-map.html#cb13-14" tabindex="-1"></a>    folium.Marker(</span>
+<span id="cb13-15"><a href="interactive-sample-location-map.html#cb13-15" tabindex="-1"></a>        location<span class="op">=</span>[row[<span class="st">'latitude'</span>], </span>
+<span id="cb13-16"><a href="interactive-sample-location-map.html#cb13-16" tabindex="-1"></a>                  row[<span class="st">'longitude'</span>]],</span>
+<span id="cb13-17"><a href="interactive-sample-location-map.html#cb13-17" tabindex="-1"></a>                  popup<span class="op">=</span><span class="ss">f"Run: </span><span class="sc">{</span>row[<span class="st">'run'</span>]<span class="sc">}</span><span class="ch">\n</span><span class="ss">Bioproject: </span><span class="sc">{</span>row[<span class="st">'bioproject'</span>]<span class="sc">}</span><span class="ch">\n</span><span class="ss">Type: </span><span class="sc">{</span>row[<span class="st">'type'</span>]<span class="sc">}</span><span class="ch">\n</span><span class="ss">Organism: </span><span class="sc">{</span>row[<span class="st">'organism'</span>]<span class="sc">}</span><span class="ch">\n</span><span class="ss">Bases: </span><span class="sc">{</span>row[<span class="st">'bases'</span>]<span class="sc">}</span><span class="ss">"</span>,</span>
+<span id="cb13-18"><a href="interactive-sample-location-map.html#cb13-18" tabindex="-1"></a>                  fill_color<span class="op">=</span><span class="st">"RdYlGn_r"</span>,</span>
+<span id="cb13-19"><a href="interactive-sample-location-map.html#cb13-19" tabindex="-1"></a>                  fill_opacity<span class="op">=</span><span class="fl">0.8</span>,</span>
+<span id="cb13-20"><a href="interactive-sample-location-map.html#cb13-20" tabindex="-1"></a>                  line_opacity<span class="op">=</span><span class="fl">0.3</span>,</span>
+<span id="cb13-21"><a href="interactive-sample-location-map.html#cb13-21" tabindex="-1"></a>                  nan_fill_color<span class="op">=</span><span class="st">"white"</span>,</span>
+<span id="cb13-22"><a href="interactive-sample-location-map.html#cb13-22" tabindex="-1"></a>                  legend_name<span class="op">=</span><span class="st">"SRA Sample Metadata Analysis"</span>,</span>
+<span id="cb13-23"><a href="interactive-sample-location-map.html#cb13-23" tabindex="-1"></a>                  name<span class="op">=</span><span class="st">"SRA sample locations"</span>,</span>
+<span id="cb13-24"><a href="interactive-sample-location-map.html#cb13-24" tabindex="-1"></a>                  ).add_to(sample_gps)</span>
+<span id="cb13-25"><a href="interactive-sample-location-map.html#cb13-25" tabindex="-1"></a></span>
+<span id="cb13-26"><a href="interactive-sample-location-map.html#cb13-26" tabindex="-1"></a><span class="co"># Save the map</span></span>
+<span id="cb13-27"><a href="interactive-sample-location-map.html#cb13-27" tabindex="-1"></a>sample_gps.save(<span class="st">"map/sample_gps.html"</span>)</span></code></pre></div>
+</div>
+<div id="r-code-to-display-the-map" class="section level2" number="4.2">
+<h2>
+<span class="header-section-number">4.2</span> R code to display the map<a class="anchor" aria-label="anchor" href="#r-code-to-display-the-map"><i class="fas fa-link"></i></a>
+</h2>
+<p>To visualize the sample locations based on their coordinates, we can embed the interactive map generated by the Python code using the <code>htmltools</code> library in R.</p>
+<div class="sourceCode" id="cb14"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/rstudio/htmltools">htmltools</a></span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu"><a href="https://rstudio.github.io/htmltools/reference/HTML.html">HTML</a></span><span class="op">(</span><span class="st">'&lt;iframe src="map/sample_gps.html" width="700" height="600"&gt;&lt;/iframe&gt;'</span><span class="op">)</span></span></code></pre></div>
+<iframe src="map/sample_gps.html" width="700" height="600"></iframe>
+<blockquote>
+<p>Note: Clicking or hovering over a pin will reveal information about the associated project, offering essential context for each location.</p>
+</blockquote>
+<blockquote>
+<p>It’s advisable to document coordinates during sample collection to accurately plot location points, thereby enhancing the report’s clarity and facilitating data interpretation.</p>
+</blockquote>
+<p>For a complete interactive experience, please view this report in a JavaScript-supported browser. Additionally, you can utilize the zoom function for closer examination and detailed analysis of the sample locations</p>
 
-<p>
-</p>
-<p>It is a good practice during sample collection to take the coordinates for plotting location points, which will add clarity to the report. For the interactive experience, view this report in a browser that supports JavaScript. You can also zoom-in or out for better exploration.</p>
-<iframe src="map/sample_gps.html" width="800" height="600"></iframe>
-
+</div>
 </div>
 
 
@@ -88,7 +137,11 @@ In this section, an interactive map is provided to explore sample locations base
 <div class="next"><a href="imap-github-repos.html"><span class="header-section-number">A</span> IMAP GitHub Repos</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#interactive-sample-location-map"><span class="header-section-number">4</span> Interactive Sample Location Map</a></li></ul>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#interactive-sample-location-map"><span class="header-section-number">4</span> Interactive Sample Location Map</a></li>
+<li><a class="nav-link" href="#python-code-to-generate-the-sample-location-map"><span class="header-section-number">4.1</span> Python Code to Generate the Sample Location Map</a></li>
+<li><a class="nav-link" href="#r-code-to-display-the-map"><span class="header-section-number">4.2</span> R code to display the map</a></li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
@@ -106,7 +159,7 @@ In this section, an interactive map is provided to explore sample locations base
     <div class="row">
       <div class="col-12 col-md-6 mt-3">
         <p><strong><u><a class="text-light" href="https://microbiome.complexdatainsights.com"><big>IMAP:</big> Integrated Microbiome Analysis Pipelines</a></u></strong>: End-to-End Practical User Guides Using Integrated Approaches</p>
-<br><p>Authored by Teresia Mrema-Buza, Last updated: <b>2024-03-10</b>.</p>
+<br><p>Authored by Teresia Mrema-Buza, Last updated: <b>2024-03-18</b>.</p>
 <br>
 </div>
       <div class="col-12 col-md-6 mt-3">

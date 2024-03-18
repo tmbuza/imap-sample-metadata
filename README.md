@@ -1,6 +1,44 @@
-# IMAP Project Overview
+# IMAP: Understanding Sample Metadata
 
----In Progress---
+Welcome to the "IMAP: Understanding Sample Metadata" repository! This repository is part of the IMAP (Integrated Microbiome Analysis Pipeline) project, aimed at providing essential tools and resources for microbiome data analysis.
+
+## About
+
+Sample metadata plays a crucial role in microbiome studies, providing essential information about sample characteristics, experimental conditions, and other relevant factors. This repository aims to provide comprehensive resources and tutorials on understanding, downloading, exploring, and visualizing sample metadata.
+
+## Key Features
+
+- **Introduction to Metadata**: Learn the fundamentals of metadata and its importance in microbiome studies.
+- **Downloading Metadata from SRA BioProject**: Step-by-step guide on how to download sample metadata from the Sequence Read Archive (SRA) BioProject database.
+- **Exploring Metadata**: Explore techniques for analyzing and interpreting sample metadata to gain insights into your microbiome dataset.
+- **Plotting Sample Collection Points on a Map**: Learn how to plot sample collection points on a map to visualize sample distribution geographically.
+
+## Contents
+
+- **Introduction**: Overview of sample metadata and its significance in microbiome research.
+- **Downloading Metadata**: Instructions for downloading sample metadata from SRA BioProject using tools like SRA Toolkit.
+- **Exploring Metadata**: Tutorials and code examples for exploring and analyzing sample metadata using Python and R.
+- **Plotting Sample Collection Points**: Guides and code examples for plotting sample collection points on a map using libraries like Folium.
+
+## Getting Started
+
+To get started, clone or download this repository to your local machine. Follow the instructions provided in the respective directories to access tutorials, code examples, and resources for understanding sample metadata.
+
+## Dependencies
+
+- Python 3.x
+- R (latest version)
+- Required Python packages: pandas, matplotlib, seaborn, folium, etc.
+- Required R packages: tidyverse, ggplot2, etc.
+
+Ensure that you have the necessary dependencies installed before running any code examples.
+
+## Contributing
+
+Contributions to this repository are welcome! If you have suggestions, improvements, or additional resources related to understanding sample metadata in microbiome studies, feel free to open an issue or submit a pull request.
+
+Happy exploring and analyzing your microbiome data!
+
 
 <br>
 
